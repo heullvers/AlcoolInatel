@@ -1,0 +1,168 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+:root{
+    --first-color: #4070F4;
+    --second-color: #0E2431;
+}
+
+.container{
+    max-width: 760px;
+    width: 100%;
+    background: #fff;
+    padding: 25px 30px;
+    border-radius: 5px;
+    background-color: #F9F9F9;
+}
+
+.container .title{
+    font-size: 25px;
+    font-weight: 500;
+}
+
+.user-details .input-box input{
+    height: 45px;
+    width: 100%;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding-left: 15px;
+    font-size: 16px;
+    border-bottom-width: 2px;
+    transition: all 0.3s ease;
+}
+
+.user-details .input-box .details{
+    display: block;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+form .user-details .input-box{
+    margin: 20px 0 12px 0;
+    width: calc(100% / 2 - 20px);
+}
+
+.container form .user-details{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.option-register{
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
+.estabelecimento-details{
+    display: none;
+}
+
+.select-register{
+    width: 175px;
+}
+
+.user-details .input-box input:focus,
+.user-details .input-box input:valid{
+    border-color: var(--second-color);
+}
+
+form .gender-details gender-title{
+    font-size: 20px;
+    font-weight: 500;
+}
+
+form .gender-details .category{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 14px 0;
+    flex-wrap: wrap;
+}
+
+.gender-details .category label{
+    display: flex;
+}
+
+.gender-details .category .dot{
+        height: 18px;
+        width: 18px;
+        background:#d9d9d9;
+        border-radius: 50%;
+        margin-right: 10px;
+        margin-bottom: 10px;
+        border: 5px solid transparent;
+}
+
+#dot-1:checked ~ .category label .one,
+#dot-2:checked ~ .category label .two,
+#dot-3:checked ~ .category label .three{
+    border-color: #d9d9d9;
+    background: #9b59b6;
+}
+
+form input[type="radio"]{
+    display: none;
+}
+
+form .button{
+    height: 45px;
+    margin: 45px 0;
+    display: flex;
+    justify-content: center;
+}
+
+form .button input{
+    height: 100%;
+    width: 200px;
+    outline: none;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    background: var(--first-color);
+    letter-spacing: 1px;
+    border-radius: 5px;
+}
+
+form .button input:hover{
+    background: var(--second-color);
+}
+
+@media screen and (max-width: 768px){
+    .container{
+        max-width: 100%;
+        margin-top: 200px;
+    } 
+
+    form .user-details .input-box{
+        margin-bottom: 15px;
+        width: 100%;
+    }
+
+    .title{
+        margin: auto;
+    }
+}
+/*
+    form .gender-details .category{
+        width: 100%;
+    }
+
+    .user-details::-webkit-scrollbar{
+        width: 0;
+    }
+}
+*/

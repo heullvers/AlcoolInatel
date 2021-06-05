@@ -15,7 +15,7 @@
     --normal-font-size: 0.938rem;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 960px) {
     :root{
         --big-font-size: 3.5rem;
         --h1-font-size: 2rem;
@@ -78,7 +78,8 @@ img{
 }
 
 .image-hero{
-    width: 900px;
+    width: 600px;
+    height: 150px;
 }
 
 .services{
@@ -86,6 +87,7 @@ img{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: #F4F6F4;
 }
 
 .depoiments{
@@ -100,7 +102,8 @@ img{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-bottom: var(--mb-4);
+    background-color: #F4F6F4;
+    padding-bottom: var(--mb-4);
 }
 
 .section-title{
@@ -143,7 +146,7 @@ img{
     font-weight: var(--font-semi);
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 960px) {
     .nav__menu{
         position: fixed;
         top: var(--header-height);
@@ -153,6 +156,14 @@ img{
         padding: 2rem;
         background-color: #0E2431;
         transition: .5s;
+    }
+
+    .image-hero{
+        display: none;
+    }
+
+    .hero{
+        padding-top: 100px !important;
     }
 }
 
@@ -244,8 +255,26 @@ img{
     border-radius: .5rem;
 }
 
+.button-register{
+    background-color: #76CE3B;
+    color: #fff;
+}
+
+.color-white{
+    background-color: white;
+    color: #000;
+}
+
 .button:hover{
     box-shadow: 0 10px 36px rgba(0,0,0,.15);
+}
+
+.hero{
+    display: flex;
+    justify-content: space-around;
+    background-color: #F4F6F4;
+    padding-top: 200px;
+    padding-bottom: 100px;
 }
 
 .about{
@@ -253,6 +282,7 @@ img{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: #fff;
 }
 
 .about__text{
@@ -409,7 +439,7 @@ img{
     margin-bottom: 16px;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 960px) {
     .footer-links {
         padding-top: 2rem;
     }
@@ -478,9 +508,8 @@ img{
     }
 
     .home__data{
-        align-self: flex-end;
+        width: 30%;
     }
-
     .home__social{
         padding-top: 0;
         padding-bottom: 2.5rem;

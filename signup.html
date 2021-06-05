@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <title>Title of the document</title>
+        <link rel="stylesheet" href="assets/css/styles-register.css">
+        <script src="assets/js/jquery-3.6.0.js"></script>
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="title">Registrar</div>
+            <form action="#">
+                <div class="option-register">
+                    <span class="details">Você é um?</span>
+                    <select name="select" class="select-register" id="select-reg">
+                        <option value="cliente" selected>Cliente</option>
+                        <option value="estabelecimento">Estabelecimento</option>
+                    </select>
+                </div>
+                <div class="user-details" id="user-details">
+                    <div class="input-box">
+                        <span class="details">Nome completo</span>
+                        <input type="text" placeholder="Digite seu nome">
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Email</span>
+                        <input type="text" placeholder="Digite seu nome">
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Número de telefone</span>
+                        <input type="text" placeholder="Digite seu nome">
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Senha</span>
+                        <input type="text" placeholder="Digite seu nome">
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Confirmar senha</span>
+                        <input type="text" placeholder="Digite seu nome">
+                    </div>
+                    <div class="input-box">
+                        <div class="gender-details">
+                            <input type="radio" name="gender" id="dot-1">
+                            <input type="radio" name="gender" id="dot-2">
+                            <input type="radio" name="gender" id="dot-3">
+                            <span class="gender-title">Gênero</span>
+                                <div class="category">
+                                    <label for="dot-1">
+                                        <span class="dot one"></span>
+                                        <span class="gender">Masculino</span>
+                                    </label>
+                                    <label for="dot-2">
+                                        <span class="dot two"></span>
+                                        <span class="gender">Feminino</span>
+                                    </label>
+                                    <label for="dot-3">
+                                        <span class="dot three"></span>
+                                        <span class="gender">Prefiro não dizer</span>
+                                    </label>
+                                </div>
+                            
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="user-details" id="estabelecimento-details">
+                    <div class="input-box">
+                        <span class="details">Estabelecimento</span>
+                        <input type="text" placeholder="Digite seu nome">
+                    </div>
+                </div>
+                <div class="button">
+                    <input type="submit" value="Registrar">
+                </div>
+            </form>
+        </div>
+        <script>
+            $('#select-reg').on('change', function (e) {
+                var optionSelected = $("option:selected", this);
+                var valueSelected = this.value;
+                console.log(valueSelected);
+                if(valueSelected == "estabelecimento"){
+                    $("#user-details").hide();
+                    $("#estabelecimento-details").show();
+                }
+                else{
+                    $("#user-details").show();
+                    $("#estabelecimento-details").hide();
+                }
+            });
+        </script>
+    </body>
+
+</html> 
