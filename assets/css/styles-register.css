@@ -43,6 +43,17 @@ body{
     transition: all 0.3s ease;
 }
 
+.cpf-label{
+    display: flex;
+    flex-direction: column;
+}
+
+
+.cnpj-label{
+    display: flex;
+    flex-direction: column;
+}
+
 .user-details .input-box .details{
     display: block;
     font-weight: 600;
@@ -53,12 +64,14 @@ form .user-details .input-box{
     margin: 20px 0 12px 0;
     width: calc(100% / 2 - 20px);
 }
-
+/*
 .container form .user-details{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
 }
+*/
+
 
 .option-register{
     display: flex;
@@ -66,7 +79,7 @@ form .user-details .input-box{
     margin-top: 10px;
 }
 
-.estabelecimento-details{
+#estabelecimento-details{
     display: none;
 }
 
@@ -135,11 +148,13 @@ form .button input{
     background: var(--first-color);
     letter-spacing: 1px;
     border-radius: 5px;
+    cursor: pointer;
 }
 
 form .button input:hover{
     background: var(--second-color);
 }
+
 
 @media screen and (max-width: 768px){
     .container{
