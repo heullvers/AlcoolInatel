@@ -23,7 +23,7 @@ body{
     background: #fff;
     padding: 25px 30px;
     border-radius: 5px;
-    background-color: #F9F9F9;
+    background-color:#f9f9f9;
 }
 
 .container .title{
@@ -70,13 +70,13 @@ form .user-details .input-box{
     margin: 20px 0 12px 0;
     width: calc(100% / 2 - 20px);
 }
-/*
+
 .container form .user-details{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
 }
-*/
+
 
 
 .option-register{
