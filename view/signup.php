@@ -1,16 +1,39 @@
+<?php
+
+    //include("../connection.php");
+
+    //$sql = "SELECT * FROM cliente WHERE cpf = 'oi'";
+
+    //mysqli_query($conn, $sql);
+    //session_start();
+    //require_once '../models/clienteController.php';
+
+    //$obj = new Cliente(1, "Heuller");
+    //$obj->listar();
+    include("../controller/clienteController.php");
+
+    $controller = new ClienteController();
+    $controller->listarClientes();
+    
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
         <meta charset="utf-8">
         <title>Cadastro | Álcool+</title>
-        <link rel="stylesheet" href="assets/css/styles-register.css">
-        <script src="assets/js/jquery-3.6.0.js"></script>
+        <link rel="stylesheet" href="../assets/css/styles-register.css">
+        <script src="../assets/js/jquery-3.6.0.js"></script>
     </head>
 
     <body>
+        <?php 
+            $consulta;
+        ?>
         <div class="container">
             <div class="title">Cadastrar</div>
-            <form action="#" name="form">
+            <form method="POST" action="../register.php" name="form">
                 <div class="option-register">
                     <span class="details">Você é um?</span>
                     <select name="select" class="select-register" id="select-reg">
@@ -24,9 +47,9 @@
                         <input type="text" placeholder="Digite seu nome" name="inputnome">
                         <span class="validate-message validate-message-nome" id="val-nome"></span>
                     </div>   
-                    <div class="input-box">
+                    <div class="input-box" id="input-cpf">
                         <span class="details">CPF</span>
-                        <input type="number" placeholder="Digite seu CPF" name="inputcpf">
+                        <input type="text" placeholder="Digite seu CPF" name="inputcpf">
                         <span class="validate-message validate-message-cpf" id="val-mes"></span>
                     </div> 
                     <div class="input-box">
@@ -59,9 +82,9 @@
                 
 
                 
-                    <div class="input-box">
+                    <div class="input-box" >
                         <span class="details">CEP</span>
-                        <input type="number" placeholder="Digite seu CEP" name="inputcep">
+                        <input type="text" placeholder="Digite seu CEP" name="inputcep">
                         <span class="validate-message validate-message-cep" id="val-cep"></span>
                     </div>  
                 
@@ -90,8 +113,9 @@
                 </div>
                 
                 <div class="button">
-                    <input type="button" value="Cadastrar" onclick="return validar()">
+                    <input type="submit" value="Cadastrar" onclick="return validar()">
                 </div>
+                <a href="signin.html">Já possui uma conta?</a>
             </form>
         </div>
         <script>
