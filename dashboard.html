@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- ===== CSS ===== -->
+        <link rel="stylesheet" href="assets/css/styles-dashboard.css">
+        <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+        
+        <title>Sidebar sub menus</title>
+    </head>
+    <body id="body-pd">
+        <div class="l-navbar" id="navbar">
+            <nav class="nav">
+                <div>
+                    <div class="nav__brand">
+                        <ion-icon name="menu-outline" class="nav__toggle" id="nav-toggle"></ion-icon>
+                        <a href="#" class="nav__logo">Álcool+</a>
+                    </div>
+                        <div class="nav__link collapse">
+                            <ion-icon name="home-outline" class="nav__icon"></ion-icon>
+                            <span class="nav__name">Home</span>
+                        </div>
+                        <div class="nav__link collapse">
+                            <ion-icon name="cube-outline" class="nav__icon"></ion-icon>
+                            <span class="nav__name">Produtos</span>
+
+                            <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
+
+                            <ul class="collapse__menu">
+                                <a href="#" class="collapse__sublink">Visualizar</a>
+                                <a href="#" class="collapse__sublink">Cadastrar</a>
+                                <a href="#" class="collapse__sublink">Editar</a>
+                                <a href="#" class="collapse__sublink">Remover</a>
+                            </ul>
+                        </div>
+
+                        <div class="nav__link collapse">
+                            <ion-icon name="home-outline" class="nav__icon"></ion-icon>
+                            <span class="nav__name">Estabelecimentos</span>
+
+                            <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
+
+                            <ul class="collapse__menu">
+                                <a href="#" class="collapse__sublink">Visualizar</a>
+                                <a href="#" class="collapse__sublink">Cadastrar</a>
+                                <a href="#" class="collapse__sublink">Editar</a>
+                                <a href="#" class="collapse__sublink">Remover</a>
+                            </ul>
+                        </div>
+                        <div class="nav__link collapse">
+                            <ion-icon name="people-outline" class="nav__icon"></ion-icon>
+                            <span class="nav__name">Clientes</span>
+
+                            <ion-icon name="chevron-down-outline" class="collapse__link"></ion-icon>
+
+                            <ul class="collapse__menu">
+                                <a href="#" class="collapse__sublink">Visualizar</a>
+                                <a href="#" class="collapse__sublink">Cadastrar</a>
+                                <a href="#" class="collapse__sublink">Editar</a>
+                                <a href="#" class="collapse__sublink">Remover</a>
+                            </ul>
+                        </div>
+                        <a href="./index.html" class="nav__link">
+                            <ion-icon name="log-out-outline" class="nav__icon"></ion-icon>
+                            <span class="nav__name">Sair</span>
+                        </a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+        <h1>Bem vindo!</h1>
+        <!-- ===== IONICONS ===== -->
+        <script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>
+        
+        <!-- ===== MAIN JS ===== -->
+        <script src="assets/js/dashboard.js"></script>
+    </body>
+</html>

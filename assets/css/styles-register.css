@@ -54,6 +54,12 @@ body{
     flex-direction: column;
 }
 
+.validate-message{
+    display: none;
+    color: red;
+    margin-top: 5px;
+}
+
 .user-details .input-box .details{
     display: block;
     font-weight: 600;

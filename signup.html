@@ -10,7 +10,7 @@
     <body>
         <div class="container">
             <div class="title">Cadastrar</div>
-            <form action="#">
+            <form action="#" name="form">
                 <div class="option-register">
                     <span class="details">Você é um?</span>
                     <select name="select" class="select-register" id="select-reg">
@@ -20,35 +20,194 @@
                 </div>
                 <div class="user-details" id="user-details">
                     <div class="input-box">
-                        <span class="details">CPF</span>
-                        <input type="text" placeholder="Digite seu CPF">
-                    </div>
+                        <span class="details">Nome</span>
+                        <input type="text" placeholder="Digite seu nome" name="inputnome">
+                        <span class="validate-message validate-message-nome" id="val-nome"></span>
+                    </div>   
                     <div class="input-box">
-                        <span class="details">Senha</span>
-                        <input type="text" placeholder="Digite sua senha">
-                    </div>      
+                        <span class="details">CPF</span>
+                        <input type="text" placeholder="Digite seu CPF" name="inputcpf">
+                        <span class="validate-message validate-message-cpf" id="val-mes"></span>
+                    </div> 
                 </div>
                 <div class="user-details" id="estabelecimento-details">
+
                     <div class="input-box">
-                        <span class="details">CPNJ</span>
-                        <input type="text" placeholder="Digite seu CNPJ">
-                        
+                        <span class="details">Nome da empresa</span>
+                        <input type="text" placeholder="Digite o nome da empresa" name="inputnomeempresa">
+                        <span class="validate-message validate-message-nome-empresa" id="val-nome-empresa"></span>
                     </div>
+
                     <div class="input-box">
-                        <span class="details">Senha</span>
-                        <input type="text" placeholder="Digite sua senha">
+                        <span class="details">CNPJ</span>
+                        <input type="text" placeholder="Digite seu CNPJ" name="inputcnpj">
+                        <span class="validate-message validate-message-cnpj" id="val-cnpj"></span>
                     </div>
                 </div>
+
+                <div class="user-details">
+                    <div class="input-box">
+                        <span class="details">Cidade</span>
+                        <input type="text" placeholder="Digite sua cidade" name="inputcidade">
+                        <span class="validate-message validate-message-cid" id="val-end-cid"></span>
+                    </div>  
+                </div>
+
+                <div class="user-details">
+                    <div class="input-box">
+                        <span class="details">CEP</span>
+                        <input type="text" placeholder="Digite seu CEP" name="inputcep">
+                        <span class="validate-message validate-message-cep" id="val-cep"></span>
+                    </div>  
+                </div>
+                
+                <div class="user-details">
+                    <div class="input-box">
+                        <span class="details">Endereço</span>
+                        <input type="text" placeholder="Rua/Avenida, número, bairro" name="inputendereco">
+                        <span class="validate-message validate-message-cpf" id="val-end"></span>
+                    </div>  
+                </div>
+                
+                <div class="user-details">
+                    <div class="input-box">
+                        <span class="details">Senha</span>
+                        <input type="password" placeholder="Digite sua senha" name="password">
+                        <span class="validate-message validate-message-password" id="val-pass"></span>
+                    </div>
+                </div>
+
+                <div class="user-details">
+                    <div class="input-box">
+                        <span class="details">Confirmar senha</span>
+                        <input type="password" placeholder="Digite sua senha" name="confirmPassword">
+                        <span class="validate-message validate-message-password-conf" id="val-pass-conf"></span>
+                    </div>
+                </div>
+                
                 <div class="button">
-                    <input type="submit" value="Registrar">
+                    <input type="button" value="Cadastrar" onclick="return validar()">
                 </div>
             </form>
         </div>
         <script>
+	
+            function isNumber(str) {
+                return !isNaN(str)
+            }
+
+            function validar(){
+               
+               var cidade = form.inputcidade.value;
+               var cep = form.inputcep.value;
+               var endereco = form.inputendereco.value;
+               var senha = form.password.value;
+               var confirmSenha = form.confirmPassword.value;
+
+               var selectR = $( "#select-reg option:selected" ).text();
+
+               if(selectR == "Cliente"){
+
+                    var cpf = form.inputcpf.value;
+                    var nome = form.inputnome.value;
+                    if(cpf == ""){ //CPF
+                        form.inputcpf.focus();
+                        $('#val-mes').html("Campo obrigatório");
+                        $('#val-mes').show();
+                    }
+                else if(cpf.length != 11){
+                        form.inputcpf.focus();
+                        $('#val-mes').html("O CPF precisa ter 11 dígitos");
+                        $('#val-mes').show();
+                }
+                else if(!isNumber(cpf)){
+                        $('#val-mes').html("Apenas números");
+                        $('#val-mes').show();
+                }
+               else{
+                    $('#val-mes').html("");
+                    $('#val-mes').hide();
+                    }
+                }
+
+                if(nome == ""){ //CPF
+                    form.inputnome.focus();
+                    $('#val-nome').html("Campo obrigatório");
+                    $('#val-nome').show();
+                }
+
+
+
+                else{ //Estabelecimento
+                    var cnpj = form.inputcnpj.value;
+                    var nomeEmpresa = form.inputnomeempresa.value;
+                    if(cnpj == ""){ //CNPJ
+                        form.inputcnpj.focus();
+                        $('#val-cnpj').html("Campo obrigatório");
+                        $('#val-cnpj').show();
+                        }
+                    else if(cnpj.length != 14){
+                            form.inputcnpj.focus();
+                            $('#val-cnpj').html("O CNPJ precisa ter 14 dígitos");
+                            $('#val-cnpj').show();
+                    }
+                    else if(!isNumber(cnpj)){
+                            $('#val-cnpj').html("Apenas números");
+                            $('#val-cnpj').show();
+                    }
+                    else{
+                        $('#val-cnpj').html("");
+                        $('#val-cnpj').hide();
+                    }
+
+                    if(nomeEmpresa == ""){ //senha
+                        form.inputnomeempresa.focus();
+                        $('#val-nome-empresa').html("Campo obrigatório");
+                        $('#val-nome-empresa').show();
+                    }
+
+
+                }
+
+                if(senha == ""){ //senha
+                    form.password.focus();
+                    $('#val-pass').html("Campo obrigatório");
+                    $('#val-pass').show();
+                    }
+                else if(senha.length < 6){
+                        form.inputcnpj.focus();
+                        $('#val-pass').html("A senha precisa ter no mínimo 6 caracteres");
+                        $('#val-pass').show();
+                }
+                else{
+                    $('#val-pass').html("");
+                    $('#val-pass').hide();
+                }
+
+                if(cidade == ""){ //senha
+                    form.inputcidade.focus();
+                    $('#val-end-cid').html("Campo obrigatório");
+                    $('#val-end-cid').show();
+                }
+
+                if(cep == ""){ //senha
+                    form.inputcep.focus();
+                    $('#val-cep').html("Campo obrigatório");
+                    $('#val-cep').show();
+                }
+
+                if(endereco == ""){ //senha
+                    form.inputendereco.focus();
+                    $('#val-end').html("Campo obrigatório");
+                    $('#val-end').show();
+                }
+
+            }
+
+
             $('#select-reg').on('change', function (e) {
                 var optionSelected = $("option:selected", this);
                 var valueSelected = this.value;
-                console.log(valueSelected);
                 if(valueSelected == "estabelecimento"){
                     $("#user-details").hide();
                     $("#estabelecimento-details").show();
