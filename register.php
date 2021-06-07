@@ -1,8 +1,9 @@
 <?php 
     
     include("controller/ClienteController.php");
+    include("controller/EstabelecimentoController.php");
     
-    $controller = new ClienteController();
+    
 
     if(isset($_POST["select"])){
         $cidade = $_POST["inputcidade"];
@@ -15,6 +16,7 @@
             $name = $_POST["inputnome"];
             $cpf = $_POST["inputcpf"];
             $comorbidade = $_POST["inputcomorbidade"];
+            $controller = new ClienteController();
             $controller->inserirCliente($name, $cpf, $comorbidade,
                 $cidade, $cep, $endereco, $senha);
             
@@ -27,9 +29,15 @@
             $name = $_POST["inputnomeempresa"];
             $cnpj = $_POST["inputcnpj"];
 
-            //createEstabelecimento($conn, $name, $cnpj, $cidade, $cep, $endereco, $senha);
+            $controller = new EstabelecimentoController();
+            $controller->inserirEstabelecimento($name, $cnpj,
+                $cidade, $cep, $endereco, $senha);
+            
+            session_start();
+            $_SESSION['messageEmpresa'] = 'O cadastro da sua empresa foi realizado com sucesso!';
+        
+            header("location: view/signup.php");
 
-            header("location: view/dashboard.html");
         }
     }
 

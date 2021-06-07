@@ -1,12 +1,17 @@
 <?php
 
     session_start();
-    $messageCadastro = "";
+    $msg = 'Conta criada com sucesso';
     if(isset($_SESSION['message'])){
-        $messageCadastro = $_SESSION['message'];
         unset($_SESSION['message']);
+        
+        echo '<script>alert("'.$msg.'")</script>';
     }
-
+    if(isset($_SESSION['messageEmpresa'])){
+        unset($_SESSION['messageEmpresa']);
+        $msg = 'Conta criada com sucesso';
+        echo '<script>alert("'.$msg.'")</script>';
+    }
 ?>
 
 <!DOCTYPE html>
@@ -103,11 +108,6 @@
                 <div class="button">
                     <input type="submit" value="Cadastrar" onclick="return validar()">
                 </div>
-                <div class="cadastrado">
-                    <?php if($messageCadastro) { ?>
-                        <p>Cadastrado realizado com sucesso!</p> <?php } ?>
-                </div>
-                
                 <a href="signin.php">Já possui uma conta?</a>
             </form>
         </div>

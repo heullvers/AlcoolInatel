@@ -17,7 +17,8 @@
         public function inserir($name, $cnpj,
         $cidade, $cep, $endereco, $senha){
             $permissao = 'normal';
-            $sql = "INSERT INTO `estabelecimento` (`id`, `nome`, `cnpj`, `cidade`, `cep`, `endereco`, `senha`, `permissao`) VALUES (NULL, '$name', '$cnpj', '$cidade', '$cep', '$endereco', '$senha', '$permissao') ";
+            $flag = 0;
+            $sql = "INSERT INTO `estabelecimento` (`id`, `nome`, `cnpj`, `cidade`, `cep`, `endereco`, `senha`, `permissao`, `flag`) VALUES (NULL, '$name', '$cnpj', '$cidade', '$cep', '$endereco', '$senha', '$permissao', '$flag')";
             $result = mysqli_query($this->conn, $sql);
 
             return $result;
@@ -25,7 +26,7 @@
         }
 
         public function logar($usuario, $senha){
-            $sql = "SELECT * FROM estabelecimento WHERE cpf='$usuario' AND senha='$senha' ";
+            $sql = "SELECT * FROM estabelecimento WHERE cnpj='$usuario' AND senha='$senha' ";
             $result = mysqli_query($this->conn, $sql);
             $row = mysqli_num_rows($result);
             return $row;

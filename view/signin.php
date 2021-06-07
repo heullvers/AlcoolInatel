@@ -1,8 +1,8 @@
 <?php
     session_start();
-    $messageLogin = "";
     if(isset($_SESSION['messageLogin'])){
-        $messageLogin = $_SESSION['messageLogin'];
+        $msg = "Credenciais inválidas";
+        echo '<script>alert("'.$msg.'")</script>';
         unset($_SESSION['messageLogin']);
     }
 ?>
@@ -37,7 +37,7 @@
                 </div>
                 <div class="user-details" id="estabelecimento-details">
                     <div class="input-box">
-                        <span class="details">CPNJ</span>
+                        <span class="details">CNPJ</span>
                         <input type="text" placeholder="Digite seu CNPJ" name="inputcnpj">
                         <span class="validate-message validate-message-cnpj" id="val-cnpj"></span>
                         
@@ -53,10 +53,6 @@
                 
                 <div class="button">
                     <input type="submit" value="Entrar" onclick="return validar()">
-                </div>
-                <div class="invalidado">
-                    <?php if($messageLogin) { ?>
-                        <p>Credenciais inválidas</p> <?php } ?>
                 </div>
                 <a href="signup.php">Ainda não possui uma conta?</a>
             </form>

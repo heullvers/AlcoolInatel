@@ -2,7 +2,7 @@
 
 include("dao/EstabelecimentoDAO.php");
 
-class ClienteController {
+class EstabelecimentoController {
 
    private $estabelecimentoDAO;
 
@@ -15,6 +15,7 @@ class ClienteController {
     
    $retorno = $this->estabelecimentoDAO->inserir($name, $cpf,
    $cidade, $cep, $endereco, $senha);
+   return $retorno;
 }
 
 public function login($usuario, $senha){

@@ -1,22 +1,52 @@
 <?php
 
     include("controller/ClienteController.php");
+    include("controller/EstabelecimentoController.php");
         
-    $controller = new ClienteController();
+    
+    
+    if(isset($_POST["select"])){
+        $senha = $_POST["password"];
+        if($_POST["select"] == "cliente"){
+            $controller = new ClienteController();
+            $usuario = $_POST["inputcpf"];
 
-    $usuario = $_POST["inputcpf"];
-    $senha = $_POST["password"];
+            if(isset($usuario) and isset($senha)){
 
-    if(isset($usuario) and isset($senha)){
-        $retorno = $controller->login($usuario, $senha);
-        if($retorno){
-            header("location: view/dashboard.html");
+                $retorno = $controller->login($usuario, $senha);
+                if($retorno){
+                    header("location: view/dashboard.html");
+                }
+                else{
+                    
+                    session_start();
+                    $_SESSION['messageLogin'] = 'Credenciais inválidas';
+                    header("location: view/signin.php");
+
+                }
+            }
         }
-        else{
+        else{ //Estabelecimento
+
+            $controller = new EstabelecimentoController();
+            $usuario = $_POST["inputcnpj"];
             
-            session_start();
-            $_SESSION['messageLogin'] = 'Credenciais inválidas';
-            header("location: view/signin.php");
+            if(isset($usuario) and isset($senha)){
+
+                $retorno = $controller->login($usuario, $senha);
+                if($retorno){
+                    header("location: view/dashboard.html");
+                }
+                else{
+                    
+                    session_start();
+                    $_SESSION['messageLogin'] = 'Credenciais inválidas';
+                    header("location: view/signin.php");
+
+                }
+            }
+
+
 
         }
     }
