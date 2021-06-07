@@ -108,7 +108,7 @@
                         <p>Cadastrado realizado com sucesso!</p> <?php } ?>
                 </div>
                 
-                <a href="signin.html">Já possui uma conta?</a>
+                <a href="signin.php">Já possui uma conta?</a>
             </form>
         </div>
         <script>
