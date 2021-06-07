@@ -1,6 +1,6 @@
 <?php
 
-class Cliente {
+class Estabelecimento {
     public function __construct(){
 
     }

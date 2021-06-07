@@ -1,20 +1,11 @@
 <?php
 
-    //include("../connection.php");
-
-    //$sql = "SELECT * FROM cliente WHERE cpf = 'oi'";
-
-    //mysqli_query($conn, $sql);
-    //session_start();
-    //require_once '../models/clienteController.php';
-
-    //$obj = new Cliente(1, "Heuller");
-    //$obj->listar();
-    include("../controller/clienteController.php");
-
-    $controller = new ClienteController();
-    $controller->listarClientes();
-    
+    session_start();
+    $messageCadastro = "";
+    if(isset($_SESSION['message'])){
+        $messageCadastro = $_SESSION['message'];
+        unset($_SESSION['message']);
+    }
 
 ?>
 
@@ -28,12 +19,9 @@
     </head>
 
     <body>
-        <?php 
-            $consulta;
-        ?>
         <div class="container">
             <div class="title">Cadastrar</div>
-            <form method="POST" action="../register.php" name="form">
+            <form method="POST" name="form" action="../register.php">
                 <div class="option-register">
                     <span class="details">Você é um?</span>
                     <select name="select" class="select-register" id="select-reg">
@@ -115,6 +103,11 @@
                 <div class="button">
                     <input type="submit" value="Cadastrar" onclick="return validar()">
                 </div>
+                <div class="cadastrado">
+                    <?php if($messageCadastro) { ?>
+                        <p>Cadastrado realizado com sucesso!</p> <?php } ?>
+                </div>
+                
                 <a href="signin.html">Já possui uma conta?</a>
             </form>
         </div>
@@ -170,7 +163,6 @@
                         $('#comorbidade').html("");
                         $('#comorbidade').hide();
                     }
-
                 }
 
                 else{ //Estabelecimento
@@ -201,6 +193,7 @@
                         $('#val-nome-empresa').html("");
                         $('#val-nome-empresa').hide();
                     }
+
 
 
                 }
@@ -257,12 +250,14 @@
                     form.confirmPassword.focus();
                     $('#val-pass-conf').html("Campo obrigatório");
                     $('#val-pass-conf').show();
+                    return false;
                 }
                 else
                 if(confirmSenha != senha){
                     form.confirmPassword.focus();
                     $('#val-pass-conf').html("As senhas não coincidem");
                     $('#val-pass-conf').show();
+                    return false;
                 }
                 else{
                     form.confirmPassword.focus();

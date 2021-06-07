@@ -161,6 +161,24 @@ form .button input:hover{
     background: var(--second-color);
 }
 
+.cadastrado{
+    display: flex;
+    justify-content: center;
+}
+
+.cadastrado p{
+    color: green;
+}
+
+.invalidado{
+    display: flex;
+    justify-content: center;
+}
+
+.invalidado p {
+    color: red;
+}
+
 
 @media screen and (max-width: 768px){
     .container{

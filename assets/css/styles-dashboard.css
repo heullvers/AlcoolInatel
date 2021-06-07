@@ -147,3 +147,88 @@
   .rotate{
     transform: rotate(180deg);
   }
+
+  .input-file{
+    margin-top: 20px;
+  }
+  /*
+  .container form .user-details{
+    display: flex;
+    flex-direction: column;
+  }
+
+  textarea{
+    resize: none;
+    min-width: 600px;
+    width: 100%;
+  }
+
+  input{
+    width: 600px;
+  }
+
+  */
+
+  .box{
+    max-width: 760px;
+    width: 100%;
+    background: #fff;
+    padding: 25px 30px;
+    border-radius: 5px;
+    background-color:#f9f9f9;
+}
+
+
+.user-details .input-box input{
+  height: 45px;
+  width: 100%;
+  outline: none;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  padding-left: 15px;
+  font-size: 16px;
+  border-bottom-width: 2px;
+  transition: all 0.3s ease;
+}
+
+
+form .user-details .input-box{
+  margin: 20px 0 12px 0;
+  width: calc(100%);
+}
+
+textarea{
+  resize: none;
+  width: calc(100%);
+}
+
+.container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 50px);
+}
+
+.title{
+  font-size: 25px;
+  font-weight: 500;
+}
+
+form .button{
+  height: 45px;
+  margin: 45px 0;
+  display: flex;
+  justify-content: center;
+}
+
+form .button input{
+  width: 400px;
+  cursor: pointer;
+}
+  
+.teste{
+  background-color: red;
+  width: 200px;
+  height: 200px;
+}

@@ -1,8 +1,8 @@
 <?php
 
-    require_once 'models/Cliente.php';
+    require_once 'models/Estabelecimento.php';
 
-    class ClienteDAO{
+    class EstabelecimentoDAO{
         private $conn;
 
         public function __construct(){
@@ -13,16 +13,11 @@
             $this->conn = new mysqli($servername, $user, $password, $db);
         }
 
-        public function listar(){
-            
-        }
 
-        public function inserir($name, $cpf, $comorbidade,
+        public function inserir($name, $cnpj,
         $cidade, $cep, $endereco, $senha){
-            $permissao = "normal";
-
-            $sql = "INSERT INTO `cliente` (`nome`, `cpf`, `comorbidade`, `cidade`, `cep`, 
-            `endereco`, `senha`, `id`, `permissao`) VALUES ('$name', '$cpf', '$comorbidade', '$cidade', '$cep', '$endereco', '$senha', NULL, '$permissao') ";
+            $permissao = 'normal';
+            $sql = "INSERT INTO `estabelecimento` (`id`, `nome`, `cnpj`, `cidade`, `cep`, `endereco`, `senha`, `permissao`) VALUES (NULL, '$name', '$cnpj', '$cidade', '$cep', '$endereco', '$senha', '$permissao') ";
             $result = mysqli_query($this->conn, $sql);
 
             return $result;
@@ -30,7 +25,7 @@
         }
 
         public function logar($usuario, $senha){
-            $sql = "SELECT * FROM cliente WHERE cpf='$usuario' AND senha='$senha' ";
+            $sql = "SELECT * FROM estabelecimento WHERE cpf='$usuario' AND senha='$senha' ";
             $result = mysqli_query($this->conn, $sql);
             $row = mysqli_num_rows($result);
             return $row;

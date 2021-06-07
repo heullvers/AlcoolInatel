@@ -1,6 +1,6 @@
 <?php
-require_once '../models/Cliente.php';
-require_once '../dao/ClienteDAO.php';
+
+include("dao/ClienteDAO.php");
 
 class ClienteController {
 
@@ -8,7 +8,6 @@ class ClienteController {
    private $clienteDAO;
 
    public function __construct(){
-      $this->cliente = new Cliente();
       $this->clienteDAO = new ClienteDAO();
    }
 
@@ -17,6 +16,20 @@ class ClienteController {
     $retorno = $this->clienteDAO->listar();
     return $retorno;
  }
+
+ public function inserirCliente($name, $cpf, $comorbidade,
+ $cidade, $cep, $endereco, $senha) {
+    
+   $retorno = $this->clienteDAO->inserir($name, $cpf, $comorbidade,
+   $cidade, $cep, $endereco, $senha);
+}
+
+public function login($usuario, $senha){
+   $retorno = $this->clienteDAO->logar($usuario, $senha);
+   return $retorno;
+}
+
+
 }
 
 ?>

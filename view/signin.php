@@ -1,3 +1,13 @@
+<?php
+    session_start();
+    $messageLogin = "";
+    if(isset($_SESSION['messageLogin'])){
+        $messageLogin = $_SESSION['messageLogin'];
+        unset($_SESSION['messageLogin']);
+    }
+?>
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -10,7 +20,7 @@
     <body>
         <div class="container">
             <div class="title">Entrar</div>
-            <form action="#" name="form">
+            <form action="../login.php" name="form" method="POST">
                 <div class="option-register">
                     <span class="details">Você é um?</span>
                     <select name="select" class="select-register" id="select-reg">
@@ -42,7 +52,11 @@
                 </div>
                 
                 <div class="button">
-                    <input type="button" value="Entrar" onclick="return validar()">
+                    <input type="submit" value="Entrar" onclick="return validar()">
+                </div>
+                <div class="invalidado">
+                    <?php if($messageLogin) { ?>
+                        <p>Credenciais inválidas</p> <?php } ?>
                 </div>
                 <a href="signup.php">Ainda não possui uma conta?</a>
             </form>
@@ -65,18 +79,18 @@
                         form.inputcpf.focus();
                         $('#val-mes').html("Campo obrigatório");
                         $('#val-mes').show();
-                        return;
+                        return false;
                     }
                 else if(cpf.length != 11){
                         form.inputcpf.focus();
                         $('#val-mes').html("O CPF precisa ter 11 dígitos");
                         $('#val-mes').show();
-                        return;
+                        return false;
                 }
                 else if(!isNumber(cpf)){
                         $('#val-mes').html("Apenas números");
                         $('#val-mes').show();
-                        return;
+                        return false;
                 }
                else{
                     $('#val-mes').html("");
@@ -89,18 +103,18 @@
                         form.inputcnpj.focus();
                         $('#val-cnpj').html("Campo obrigatório");
                         $('#val-cnpj').show();
-                        return;
+                        return false;
                         }
                     else if(cnpj.length != 14){
                             form.inputcnpj.focus();
                             $('#val-cnpj').html("O CNPJ precisa ter 14 dígitos");
                             $('#val-cnpj').show();
-                            return;
+                            return false;
                     }
                     else if(!isNumber(cnpj)){
                             $('#val-cnpj').html("Apenas números");
                             $('#val-cnpj').show();
-                            return;
+                            return false;
                     }
                     else{
                         $('#val-cnpj').html("");
@@ -112,14 +126,12 @@
                     form.password.focus();
                     $('#val-pass').html("Campo obrigatório");
                     $('#val-pass').show();
-                    return ;
+                    return false;
                 }
                 else{
                     $('#val-pass').html("");
                     $('#val-pass').hide();
                 }
-                
-                location.href = "dashboard.html"
             }
 
 
