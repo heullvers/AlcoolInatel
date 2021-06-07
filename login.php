@@ -15,7 +15,7 @@
 
                 $retorno = $controller->login($usuario, $senha);
                 if($retorno){
-                    header("location: view/dashboard.html");
+                    header("location: view/dashboard.php");
                 }
                 else{
                     
@@ -35,7 +35,7 @@
 
                 $retorno = $controller->login($usuario, $senha);
                 if($retorno){
-                    header("location: view/dashboard.html");
+                    header("location: view/dashboard.php");
                 }
                 else{
                     

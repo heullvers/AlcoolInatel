@@ -1,6 +1,6 @@
 <?php
 
-include("dao/EstabelecimentoDAO.php");
+include("../dao/EstabelecimentoDAO.php");
 
 class EstabelecimentoController {
 
@@ -20,6 +20,11 @@ class EstabelecimentoController {
 
 public function login($usuario, $senha){
    $retorno = $this->estabelecimentoDAO->logar($usuario, $senha);
+   return $retorno;
+}
+
+public function listarTodos(){
+   $retorno = $this->estabelecimentoDAO->listar();
    return $retorno;
 }
 

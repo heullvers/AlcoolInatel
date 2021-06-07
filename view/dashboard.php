@@ -1,3 +1,11 @@
+<?php
+
+    include("../controller/EstabelecimentoController.php");
+    $controller = new EstabelecimentoController();
+    $retorno = $controller->listarTodos();
+    
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -6,6 +14,7 @@
 
         <!-- ===== CSS ===== -->
         <link rel="stylesheet" href="../assets/css/styles-dashboard.css">
+        <link rel="stylesheet" href="../assets/css/styles-view.css">
         <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
         
         <title>Álcool+ | Dashboard</title>
@@ -52,6 +61,7 @@
         
         <div id="conteudo">
             
+
         </div>
 
 
@@ -59,10 +69,12 @@
         <script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>
         <script src="../assets/js/jquery-3.6.0.js"></script>
         <script>
-
+            
             $(document).ready(function() {
                 $("#conteudo").load("viewHome.html");
             });
+            
+
             
             //Home
             $("#home").click(function() {
@@ -88,7 +100,7 @@
             //Estabelecimento
             $("#estabelecimentos").click(function() {
                 $(function(){
-                    $("#conteudo").load("viewEstabelecimento.html");
+                    $("#conteudo").load("viewEstabelecimento.php");
                 });
             });
 

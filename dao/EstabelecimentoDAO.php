@@ -1,6 +1,6 @@
 <?php
 
-    require_once 'models/Estabelecimento.php';
+    include('../models/Estabelecimento.php');
 
     class EstabelecimentoDAO{
         private $conn;
@@ -32,7 +32,11 @@
             return $row;
             
         }
-        
-    }
 
-?>
+        public function listar(){
+            $sql = "SELECT * FROM estabelecimento";
+            $result = mysqli_query($this->conn, $sql);
+            return $result;
+            
+        }
+    }

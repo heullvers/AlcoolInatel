@@ -170,12 +170,10 @@
   */
 
   .box{
-    max-width: 760px;
+    max-width: 1080px;
     width: 100%;
-    background: #fff;
     padding: 25px 30px;
     border-radius: 5px;
-    background-color:#f9f9f9;
 }
 
 
@@ -226,9 +224,14 @@ form .button input{
   width: 400px;
   cursor: pointer;
 }
-  
-.teste{
-  background-color: red;
-  width: 200px;
-  height: 200px;
+
+.input-file{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+@media screen and (max-width: 760px) {
+  .container{
+    margin-top: 100px;
+  }
 }
