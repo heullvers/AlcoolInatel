@@ -29,9 +29,24 @@ body{
 
 .button-manip{
     cursor: pointer;
-    color: darkblue;
+    
   }
+
+.edit{
+    color: darkblue;
+}
+
+.remove{
+    color: red;
+}
+
+.laranja{
+    color: orange;
+}
   
+.verde{
+    color: green;
+}
 
 @media(max-width: 760px){
 

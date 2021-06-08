@@ -69,12 +69,20 @@
         <script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>
         <script src="../assets/js/jquery-3.6.0.js"></script>
         <script>
-            
-            $(document).ready(function() {
-                $("#conteudo").load("viewHome.html");
-            });
-            
+            var link = window.location.href;
+            var url = new URL(link);
+            var c = url.searchParams.get("tela");
 
+            if(c == "ve"){
+                $(document).ready(function() {
+                    $("#conteudo").load("viewEstabelecimento.php");
+                });
+            }
+            else{
+                $(document).ready(function() {
+                    $("#conteudo").load("viewHome.html");
+                });
+            }
             
             //Home
             $("#home").click(function() {

@@ -28,6 +28,16 @@ public function listarTodos(){
    return $retorno;
 }
 
+public function ativar($id){
+   $retorno = $this->estabelecimentoDAO->ativarEstabelecimento($id);
+   return $retorno;
+}
+
+public function verificarId($cnpj){
+   $retorno = $this->estabelecimentoDAO->verificacao($cnpj);
+   return $retorno;
+}
+
 
 }
 

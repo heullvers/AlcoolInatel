@@ -39,4 +39,20 @@
             return $result;
             
         }
+
+        public function ativarEstabelecimento($id){
+
+            $sql = "UPDATE `estabelecimento` SET `flag` = NOT flag  WHERE id = '$id'";
+            $result = mysqli_query($this->conn, $sql);
+            return $result;
+            
+        }
+
+        public function verificacao($cnpj){
+            
+            $sql = "SELECT `id` FROM `estabelecimento` WHERE cnpj = '$cnpj'";
+            $result = mysqli_query($this->conn, $sql);
+            return $result;
+            
+        }
     }

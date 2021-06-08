@@ -12,37 +12,65 @@
 
 <div class="container">
     <div class="box">
-        <table class="table">
-            <thead>
-                <th>ID</th>
-                <th>Nome</th>
-                <th>CNPJ</th>
-                <th>Cidade</th>
-                <th>CEP</th>
-                <th>Endereço</th>
-                <th>Permissão</th>
-                <th>Ativo</th>
-                <th>Editar</th>
-                <th>Remover</th>
-            </thead>
-            <tbody>
-                <?php while($dado = $retorno->fetch_array()){ ?>
-                <tr>
-                    <td data-label="ID"><?php echo $dado["id"] ?></td>
-                    <td data-label="Nome"><?php echo $dado["nome"] ?></td>
-                    <td data-label="CNPJ"><?php echo $dado["cnpj"] ?></td>
-                    <td data-label="Cidade"><?php echo $dado["cidade"] ?></td>
-                    <td data-label="CEP"><?php echo $dado["cep"] ?></td>
-                    <td data-label="Endereço"><?php echo $dado["endereco"] ?></td>
-                    <td data-label="Permissão"><?php echo $dado["permissao"] ?></td>
-                    <td data-label="Ativo">
-                        <?php echo $dado["flag"] ?>
-                    </td>
-                    <td data-label="Editar" class="button-manip"><i class='bx bxs-edit-alt'></i></td>
-                    <td data-label="Remover" class="button-manip"><i class='bx bxs-trash' ></i></td>
-                </tr>
-                <?php } ?>
-            </tbody>
-        </table>
+        <form id="formulario" method="POST" action="requisicao.php">
+            <input type="hidden" id="valorinv" name="valorinv">
+        </form>
+            <table class="table">
+                <thead>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>CNPJ</th>
+                    <th>Cidade</th>
+                    <th>CEP</th>
+                    <th>Endereço</th>
+                    <th>Permissão</th>
+                    <th>Ativo</th>
+                </thead>
+                <tbody>
+                    <?php while($dado = $retorno->fetch_array()){ ?>
+                    <tr>
+                        <td data-label="ID"><?php echo $dado["id"] ?></td>
+                        <td data-label="Nome"><?php echo $dado["nome"] ?></td>
+                        <td data-label="CNPJ"><?php echo $dado["cnpj"] ?></td>
+                        <td data-label="Cidade"><?php echo $dado["cidade"] ?></td>
+                        <td data-label="CEP"><?php echo $dado["cep"] ?></td>
+                        <td data-label="Endereço"><?php echo $dado["endereco"] ?></td>
+                        <td data-label="Permissão"><?php echo $dado["permissao"] ?></td>
+                        
+                        <td id="ativacao" onclick="funcaozinha(<?php echo $dado['id'] ?>)" data-label="Ativo" class="button-manip" id="permission"> 
+                            <?php 
+                            if(!$dado["flag"]){
+                                ?> <i class='bx bxs-user laranja'></i> <?php
+                            }
+                            else{
+                                ?> <i class='bx bxs-user verde'></i> <?php
+                            }
+                            
+                            
+                            ?> 
+                        </td>
+                    <?php } ?>
+                </tbody>
+            </table>
     </div>
 </div>
+
+
+<script src="../assets/js/jquery-3.6.0.js"></script>
+<script>
+    /*
+    $( "#ativacao" ).submit(function( event ) {
+        
+    });
+    */
+
+    function funcaozinha(event){
+        if(confirm("Deseja alterar o estado?")){
+            $('#valorinv').attr('value', event);
+
+            $( "#formulario" ).submit();
+
+            //window.location.href="dashboard.php?tela=ve";
+        }
+    }
+</script>
